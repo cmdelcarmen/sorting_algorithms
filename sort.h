@@ -19,7 +19,6 @@ typedef struct listint_s
 } listint_t;
 
 
-/*file_name*/
 void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
 
@@ -28,12 +27,10 @@ void bubble_sort(int *array, size_t size);
 void bubble_sort_array(int *array, size_t size);
 int check_if_sorted(int *array, size_t size);
 
-
-/*file_name*/
+/*fie name: 1-insertion_sort_list.c*/
 void insertion_sort_list(listint_t **list);
 
-/*file_name*/
-void insertion_sort_list(listint_t **list);
-
+/*file name: 2-selection_sort.c*/
+void selection_sort(int *array, size_t size);
 
 #endif
