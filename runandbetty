@@ -1,0 +1,5 @@
+#!/bin/bash
+gcc -Wall -Wextra -Werror -pedantic 0-bubble_sort.c 0-main.c print_array_and_list.c -o bubble
+./bubble
+betty 0-bubble_sort.c
+betty sort.h
