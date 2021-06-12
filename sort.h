@@ -32,5 +32,7 @@ void insertion_sort_list(listint_t **list);
 
 /*file name: 2-selection_sort.c*/
 void selection_sort(int *array, size_t size);
+void selection_sort_array(int *array, size_t size);
+
 
 #endif
