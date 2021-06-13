@@ -22,10 +22,12 @@ typedef struct listint_s
 void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
 
+/*helper functions*/
+int check_if_sorted(int *array, size_t size);
+
 /*file name: 0-bubble_sort.c*/
 void bubble_sort(int *array, size_t size);
 void bubble_sort_array(int *array, size_t size);
-int check_if_sorted(int *array, size_t size);
 
 /*fie name: 1-insertion_sort_list.c*/
 void insertion_sort_list(listint_t **list);
@@ -33,6 +35,10 @@ void insertion_sort_list(listint_t **list);
 /*file name: 2-selection_sort.c*/
 void selection_sort(int *array, size_t size);
 void selection_sort_array(int *array, size_t size);
+
+/*file name: 3-quick_sort.c*/
+void quick_sort(int *array, size_t size);
+int quick_sort_array(int *array, size_t size, int pivot);
 
 
 #endif
