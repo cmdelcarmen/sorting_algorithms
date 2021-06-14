@@ -26,8 +26,8 @@ void swapper(listint_t *p, listint_t *h, listint_t **head)
 }
 
 /**
- * insertion_sort_list - sorts a doubly linked list of integers in ascending order
- * @:list - pointer to head of doubly linked list
+ * insertion_sort_list - sorts doubly linked list of ints in ascending order
+ * @list: pointer to head of doubly linked list
  */
 
 void insertion_sort_list(listint_t **list)
