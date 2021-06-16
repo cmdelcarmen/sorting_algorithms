@@ -24,22 +24,28 @@ void quick_swap(int *a, int *b)
 int partition(int *array, int first, int last, size_t size)
 {
 	int idx, jdx, pivot;
-	
-	idx = first - 1;
+
+	idx = first;
 	pivot = array[last];
 
-	for (jdx = first; jdx <= last - 1; jdx++)
+	for (jdx = first; jdx < last; jdx++)
 	{
 		if (array[jdx] <= pivot)
 		{
+			if (array[idx] != array[jdx])
+			{
+				quick_swap(&array[idx], &array[jdx]);
+				print_array(array, size);
+			}
 			idx++;
-			quick_swap(&array[idx], &array[jdx]);
-			print_array(array, size);
 		}
 	}
-	quick_swap(&array[idx + 1], &array[last]);
-	print_array(array, size);
-	return (idx + 1);
+	if (idx != last)
+	{
+		quick_swap(&array[idx], &array[last]);
+		print_array(array, size);
+	}
+	return (idx);
 }
 /**
  * _quick_sort - recursive quick sort function with parameters to better
@@ -51,11 +57,9 @@ int partition(int *array, int first, int last, size_t size)
  */
 void _quick_sort(int *array, int first, int last, size_t size)
 {
-	int part;
-
 	if (first < last)
 	{
-		part = partition(array, first, last, size);
+		int part = partition(array, first, last, size);
 
 		_quick_sort(array, first, part - 1, size);
 		_quick_sort(array, part + 1, last, size);
@@ -69,7 +73,7 @@ void _quick_sort(int *array, int first, int last, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (size < 2)
+	if (size < 2 || array == NULL)
 		return;
 	_quick_sort(array, 0, size - 1, size);
 }
