@@ -1,6 +1,19 @@
 #include "sort.h"
 
 /**
+ * quick_swap - swap function
+ * @a: item a
+ * @b: item b
+ */
+void quick_swap(int a, int b)
+{
+	int tmp;
+
+	tmp = a;
+	a = b;
+	b = tmp;
+}
+/**
  * partition - partitions array into 2 sections based on our selected pivot
  * @array: array to be partitioned
  * @first: beginning of our array
@@ -10,23 +23,19 @@
  */
 int partition(int *array, int first, int last, size_t size)
 {
-	int idx1 = first - 1, idx2, tmp;
-	int pivot = array[size];
-
+	int idx1 = first - 1, idx2;
+	int pivot = array[last];
+	
 	for (idx2 = first; idx2 <= last - 1; idx2++)
 	{
 		if (array[idx2] < pivot)
 		{
 			idx1++;
-			tmp = array[idx1];
-			array[idx1] = array[idx2];
-			array[idx2] = tmp;
+			quick_swap(array[idx1], array[idx2]);
 			print_array(array, size);
 		}
 	}
-	tmp = array[idx1 + 1];
-	array[idx1 + 1] = array[last];
-	array[last] = tmp;
+	quick_swap(array[idx1 + 1], array[last]);
 	print_array(array, size);
 	return (idx1 + 1);
 }
