@@ -5,13 +5,13 @@
  * @a: item a
  * @b: item b
  */
-void quick_swap(int a, int b)
+void quick_swap(int *a, int *b)
 {
 	int tmp;
 
-	tmp = a;
-	a = b;
-	b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 /**
  * partition - partitions array into 2 sections based on our selected pivot
@@ -23,21 +23,23 @@ void quick_swap(int a, int b)
  */
 int partition(int *array, int first, int last, size_t size)
 {
-	int idx1 = first - 1, idx2;
-	int pivot = array[last];
+	int idx, jdx, pivot;
 	
-	for (idx2 = first; idx2 <= last - 1; idx2++)
+	idx = first - 1;
+	pivot = array[last];
+
+	for (jdx = first; jdx <= last - 1; jdx++)
 	{
-		if (array[idx2] < pivot)
+		if (array[jdx] <= pivot)
 		{
-			idx1++;
-			quick_swap(array[idx1], array[idx2]);
+			idx++;
+			quick_swap(&array[idx], &array[jdx]);
 			print_array(array, size);
 		}
 	}
-	quick_swap(array[idx1 + 1], array[last]);
+	quick_swap(&array[idx + 1], &array[last]);
 	print_array(array, size);
-	return (idx1 + 1);
+	return (idx + 1);
 }
 /**
  * _quick_sort - recursive quick sort function with parameters to better
