@@ -11,11 +11,11 @@
 int partition(int *array, int first, int last, size_t size)
 {
 	int idx1 = first - 1, idx2, tmp;
-	int pivot = array[last];
+	int pivot = array[size];
 
 	for (idx2 = first; idx2 <= last - 1; idx2++)
 	{
-		if (array[idx2] <= pivot)
+		if (array[idx2] < pivot)
 		{
 			idx1++;
 			tmp = array[idx1];
@@ -58,7 +58,6 @@ void _quick_sort(int *array, int first, int last, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-
 	if (size < 2)
 		return;
 	_quick_sort(array, 0, size - 1, size);
